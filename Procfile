@@ -1,1 +1,1 @@
-web: gunicorn drinksmenu.wsgi
+web: gunicorn drinks-menu.wsgi
