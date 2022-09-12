@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-import os 
+import os
 import dj_database_url
 
 if os.path.isfile("env.py"):
@@ -33,8 +33,6 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = ['drinks-menu.herokuapp.com', 'localhost']
-
-
 
 
 # Application definition
@@ -95,7 +93,6 @@ WSGI_APPLICATION = 'drinksmenu.wsgi.application'
 DATABASES = {
    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
-
 
 
 # Password validation
