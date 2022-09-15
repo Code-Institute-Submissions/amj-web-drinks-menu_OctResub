@@ -2,8 +2,11 @@
 
 {% block content %}
 
-<h1>Add Blog Post</h1>
-
-
+<h1>Add Post</h1>
+<br/><br/>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="button" class="btn btn-secondary">Post</button>
 
 {% endblock %}
