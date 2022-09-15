@@ -167,3 +167,56 @@ body {
     object-fit: cover;
     object-position: center;
 }
+
+.login-page {
+    background: rgba(0,0,0,1);  
+    /* background: url('../images/signin-bg.jpg'); */
+    padding: 5rem 3rem;
+    color: white;
+}
+
+.login-page h3 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.login-page p{
+    font-size: 1.2rem;
+}
+
+.login-page form {
+    padding: 1rem 1rem;
+    background-color: rgba(255,255,255, 0.3);
+    padding: 3rem 1rem;
+}
+
+.login-page form label {
+    font-size: 1.4rem;
+    padding-right: 0.5rem;
+    font-weight: 500;
+}
+
+.login-page form input[type="text"], .login-page form input[type="password"], .login-page form input[type="email"] {
+    padding: 0.5rem 0.8rem;
+    font-size: 1.2rem;
+    letter-spacing: 0.05em;
+    border-radius: 0.5rem;
+}
+
+.login-page form input[type="text"]::placeholder, .login-page form input[type="password"]::placeholder {
+    padding: 0.5rem 0.8rem;
+    font-size: 1.2rem;
+    letter-spacing: 0.05em;
+}
+
+.login-page form .submit {
+    display: flex;
+    justify-content: center;
+}
+.login-page form button {
+    
+    padding: 0.5rem 2rem;
+    background-color: black;
+    text-transform: uppercase;
+    letter-spacing: 0.17em;
+}
