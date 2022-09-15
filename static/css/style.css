@@ -142,17 +142,6 @@ body {
     border: none;
 }
 
-.hero {
-    display: flex;
-    flex-direction: column;
-    padding: 1rem 3rem;
-    color: white;
-    height: 400px;
-    justify-content: center;
-    background-size: cover;
-    background-position: 0px -531px;
-}
-
 .carousel-item {
     position: relative;
     display: none;
@@ -165,16 +154,16 @@ body {
     height: 400px;
 }
 
-.hero h1 {
-    font-size: 3.5rem;
-}
-
-.hero p {
-    font-size: 2rem;
-    color: rgb(231, 226, 226);
-
-}
 
 .footer {
     background-color: rgb(116, 6, 6);
+}
+
+#carouselHero {
+    background-color: black;
+}
+#carouselHero img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
 }

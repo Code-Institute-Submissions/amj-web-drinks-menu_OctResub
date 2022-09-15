@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from .models import Post
 from .forms import CommentForm
+from django.template import loader
 
 
 class PostList(generic.ListView):
@@ -76,3 +77,8 @@ class PostLike(View):
             post.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+
+def frontpage(request):
+    template = loader.get_template('frontpage.html')
+    return HttpResponse(template.render())
