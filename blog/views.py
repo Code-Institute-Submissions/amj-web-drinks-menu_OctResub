@@ -1,10 +1,10 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic, View
-from django.views.generic.edit import CreateView
 from django.http import HttpResponseRedirect, HttpResponse
-from .models import Post
-from .forms import CommentForm
+from django.utils.text import slugify
 from django.template import loader
+from .models import Post
+from .forms import CommentForm, PostForm
 
 
 class PostList(generic.ListView):
@@ -85,7 +85,35 @@ def frontpage(request):
     return HttpResponse(template.render())
 
 
-class AddPostView(CreateView):
-    model = Post
-    template_name = 'add_post.html'
-    fields = '__all__'
+class AddPostView(View):
+    def post(self, request, *aggs, **kwargs):
+        author = request.user
+        if author.has_perm('blog.add_post'):
+            new_post = PostForm(request.POST, request.FILES)
+            # new_post = PostForm(initial={
+            #     'title': request.POST['title'],
+            #     'featured_image': request.POST['featured_image'],
+            #     'excerpt': request.POST['excerpt'],
+            #     'content': request.POST['content'],
+            #     'status': request.POST['status'],
+            # })
+            post_save = new_post.save(commit=False)
+            post_save.slug = slugify(request.POST['title'])
+            post_save.author = author
+            post_save.save()
+            return redirect('/')
+
+        template_name = 'add_post.html'
+        context = {
+            message: 'You do not have permission to post',
+            form: PostForm
+            }
+        return render(request, template_name, context)
+        
+    def get(self, request): 
+        template_name = 'add_post.html'
+        context = {
+            'form': PostForm,
+            'message': ''  
+        }
+        return render(request, template_name, context)
