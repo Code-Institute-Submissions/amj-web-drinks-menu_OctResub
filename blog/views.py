@@ -7,11 +7,20 @@ from .models import Post
 from .forms import CommentForm, PostForm
 
 
-class PostList(generic.ListView):
+class Homepage(View):
+    def get(self, request):
+        template_name = "drinks/index.html"
+        return render(request, template_name)
+
+
+
+class CocktailsList(generic.ListView):
+    """ Displays a list of all cocktails """
     model = Post
     queryset = Post.objects.filter(status=1).order_by("-created_on")
-    template_name = "index.html"
+    template_name = "drinks/cocktails.html"
     paginate_by = 6
+
 
 
 class PostDetail(View):
@@ -26,7 +35,7 @@ class PostDetail(View):
 
         return render(
             request,
-            "post_detail.html",
+            "drinks/post_detail.html",
             {
                 "post": post,
                 "comments": comments,
@@ -57,7 +66,7 @@ class PostDetail(View):
 
         return render(
             request,
-            "post_detail.html",
+            "drinks/post_detail.html",
             {
                 "post": post,
                 "comments": comments,
@@ -81,7 +90,7 @@ class PostLike(View):
 
 
 def frontpage(request):
-    template = loader.get_template('frontpage.html')
+    template = loader.get_template('drinks/frontpage.html')
     return HttpResponse(template.render())
 
 
@@ -103,7 +112,7 @@ class AddPostView(View):
             post_save.save()
             return redirect('/')
 
-        template_name = 'add_post.html'
+        template_name = 'drinks/add_post.html'
         context = {
             message: 'You do not have permission to post',
             form: PostForm
@@ -111,7 +120,7 @@ class AddPostView(View):
         return render(request, template_name, context)
         
     def get(self, request): 
-        template_name = 'add_post.html'
+        template_name = 'drinks/add_post.html'
         context = {
             'form': PostForm,
             'message': ''  
