@@ -12,3 +12,8 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         exclude = ['author', 'updated_on', 'created_on', 'likes', 'slug']
+
+class UpdatePostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        exclude = []

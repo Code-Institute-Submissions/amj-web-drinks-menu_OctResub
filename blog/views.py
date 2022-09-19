@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.utils.text import slugify
 from django.template import loader
 from .models import Post
-from .forms import CommentForm, PostForm
+from .forms import CommentForm, PostForm, UpdatePostForm
 
 
 def frontpage(_):
@@ -96,7 +96,7 @@ class EditPost(View):
     def get(self, request, user_id):
         template_name = 'drinks/edit_post.html'
         context = {
-            'form': PostForm(instance=Post.objects.get(id=user_id)),
+            'form': UpdatePostForm(instance=Post.objects.get(id=user_id)),
             'message': ''
         }
 
@@ -106,13 +106,16 @@ class EditPost(View):
         
         existing_post = get_object_or_404(Post, id = user_id)
 
-        form = PostForm(request.POST or None, instance = existing_post)
+        form = UpdatePostForm(request.POST or None, instance = existing_post)
         
         if form.is_valid():
             print('Post is valid... saving post.')
+
+            # update slug
+            form.instance.slug = slugify(request.POST['title'])
             form.save()
-            return HttpResponseRedirect('/')
-            
+            return HttpResponseRedirect('/' + form.instance.slug)
+
         else:
             print('Post is invalid.')
             print(form.errors)
