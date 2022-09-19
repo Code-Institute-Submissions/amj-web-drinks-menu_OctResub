@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect, HttpResponse
 from django.utils.text import slugify
@@ -7,11 +7,15 @@ from .models import Post
 from .forms import CommentForm, PostForm
 
 
+def frontpage(_):
+    template = loader.get_template('drinks/frontpage.html')
+    return HttpResponse(template.render())
+
+
 class Homepage(View):
     def get(self, request):
         template_name = "drinks/index.html"
         return render(request, template_name)
-
 
 
 class CocktailsList(generic.ListView):
@@ -20,7 +24,6 @@ class CocktailsList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by("-created_on")
     template_name = "drinks/cocktails.html"
     paginate_by = 6
-
 
 
 class PostDetail(View):
@@ -33,18 +36,21 @@ class PostDetail(View):
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
 
-        return render(
-            request,
-            "drinks/post_detail.html",
-            {
+        context = {
                 "post": post,
                 "comments": comments,
                 "commented": False,
                 "liked": liked,
-                "comment_form": CommentForm()
-            },
+                "comment_form": CommentForm(),
+                "is_author": post.author == request.user
+                 }
+
+        return render(
+            request,
+            "drinks/post_detail.html",
+            context
         )
-    
+
     def post(self, request, slug, *args, **kwargs):
 
         queryset = Post.objects.filter(status=1)
@@ -77,8 +83,43 @@ class PostDetail(View):
         )
 
 
+class DeletePost(View):
+    """ Athor can delete post """
+    def post(self, request, id):
+        post = Post.objects.get(id=id)
+        post.delete()
+
+        return HttpResponseRedirect(reverse('home'))
+
+class EditPost(View):
+    """ Athor can edit post """
+    def get(self, request, id):
+        template_name = 'drinks/add_post.html'
+        context = {
+            'form': PostForm(instance=Post.objects.get(id=id)),
+            'message': ''
+        }
+
+        return render(request, template_name, context)
+    def post(self, request, id):   
+        # author = request.user
+        # if author.has_perm('blog.add_post'):
+        #     post = Post.objects.get(id=id)
+        #     post.title = request.POST['title']
+        #     post.excerpt = request.POST['excerpt']
+        #     post.content = request.POST['content']
+        #     post.status = request.POST['status']
+        print(request)
+        post = Post.objects.get(id=id)
+        form = PostForm(instance=post, data=request.post)
+        if(form.is_valid()):
+            form.save()
+            return HttpResponseRedirect(reverse('post_detail', args=[post.slug]))
+
+        return HttpResponseRedirect(reverse('post_detail', args=[post.slug]))
+
+
 class PostLike(View):
-    
     def post(self, request, slug, *args, **kwargs):
         post = get_object_or_404(Post, slug=slug)
         if post.likes.filter(id=request.user.id).exists():
@@ -87,11 +128,6 @@ class PostLike(View):
             post.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
-
-
-def frontpage(request):
-    template = loader.get_template('drinks/frontpage.html')
-    return HttpResponse(template.render())
 
 
 class AddPostView(View):
@@ -114,12 +150,12 @@ class AddPostView(View):
 
         template_name = 'drinks/add_post.html'
         context = {
-            message: 'You do not have permission to post',
-            form: PostForm
+            'message': 'You do not have permission to post',
+            'form': PostForm
             }
         return render(request, template_name, context)
-        
-    def get(self, request): 
+
+    def get(self, request):
         template_name = 'drinks/add_post.html'
         context = {
             'form': PostForm,

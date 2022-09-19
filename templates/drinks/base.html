@@ -35,6 +35,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">Home</a>
+                    </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
@@ -52,19 +55,7 @@
                         <a class="nav-link" href="{% url 'account_login' %}">Login</a>
                     </li>
                     {% endif %}
-
-
                 </ul>
-                <span class="navbar-text text-muted">
-                    A place to find share the best cocktail recipies
-                </span>
-            </div>
-
-
-                </ul>
-                <span class="navbar-text text-muted">
-                    A place to find share the best cocktail recipies
-                </span>
             </div>
         </div>
     </nav>
@@ -81,12 +72,11 @@
         </div>
     </div>
 
-    <main class="flex-shrink-0 main-bg">
-
+    <div class="flex-shrink-0 main-bg test">
         {% block content %}
-        <!-- Content Goes here -->
+        <!-- Content From Other Pages Goes here -->
         {% endblock content %}
-    </main>
+    </div>
 
     <!-- Footer -->
     <footer class="footer mt-auto py-3 dark-bg">
@@ -103,6 +93,9 @@
             alert.close();
         }, 2500);
     </script>
+    {% block scripts %}
+    <!-- extra script -->
+    {% endblock scripts %}
 </body>
 
 </html>

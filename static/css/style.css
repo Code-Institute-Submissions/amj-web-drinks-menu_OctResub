@@ -142,30 +142,29 @@ body {
     border: none;
 }
 
-.carousel-item {
-    position: relative;
-    display: none;
-    float: left;
+.home-background {
+    background-size: cover;
+    overflow: hidden;
     width: 100%;
-    margin-right: -100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    transition: transform .6s ease-in-out;
-    height: 400px;
+    height: 100%;
 }
-
 
 .footer {
     background-color: rgb(116, 6, 6);
 }
 
-#carouselHero {
-    background-color: black;
+.login-home {
+    position: absolute;
+    top: 250px;
+    left: 0;
+    background-color: rgba(50, 50, 50, 0.5);
+    padding: 10px;
+    border-radius: 3px;
+
 }
-#carouselHero img {
-    width: 100%;
-    object-fit: cover;
-    object-position: center;
+
+.login-home-text, .login-home h3{
+    color: yellow;
 }
 
 .login-page {
@@ -213,10 +212,34 @@ body {
     display: flex;
     justify-content: center;
 }
+
 .login-page form button {
-    
     padding: 0.5rem 2rem;
     background-color: black;
     text-transform: uppercase;
     letter-spacing: 0.17em;
+}
+
+.form_container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.form_container form {
+    background-color: green;
+    width: 50%;
+}
+
+.author_btns {
+    background-color: blue;
+}
+
+.count_btn {
+    background-color: yellowgreen;
+}
+
+.post-btn-wrapper {
+    background-color: #E84610;
+    width: 100%;
 }
