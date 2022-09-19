@@ -1,5 +1,8 @@
 # Django
 
+## Create Post
+-   https://stackoverflow.com/questions/6253611/how-to-get-the-id-of-a-just-created-record-in-django
+
 ## Update Post
 
 -   https://www.geeksforgeeks.org/update-view-function-based-views-django/
