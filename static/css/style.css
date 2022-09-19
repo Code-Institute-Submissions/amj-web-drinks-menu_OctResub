@@ -1,5 +1,5 @@
 body {
-    background-color: #F9FAFC;
+    background-color: #222222;
     font-family: "Inter", Arial, Helvetica, sans-serif;
 }
 
@@ -42,7 +42,7 @@ body {
 .image-flash {
     position: absolute;
     bottom: 5%;
-    min-width: 30%;
+    min-width: 12%;
     left: -2px;
     background-color: #750000;
 }
@@ -51,15 +51,23 @@ body {
     color: white;
     margin: 4px;
     text-transform: uppercase;
+    font-size: 0.6rem;
 }
+
+
 
 .masthead {
     margin-top: 10px;
     overflow: hidden;
     position: relative;
     display: inline-block;
-    height: 33vh;
     width: 100%;
+}
+
+@media (min-width: 768px) {
+    .masthead {
+        height: 45vh;
+    } 
 }
 
 .masthead-text {
@@ -243,18 +251,57 @@ body {
 }
 
 .author_btns {
-    background-color: blue;
+    display: flex;
+    gap: 1.2rem;
+    flex-shrink: 0;
 }
 
 .count_btn {
-    background-color: yellowgreen;
-}
-
-.post-btn-wrapper {
-    background-color: #E84610;
+    background-color: white;
+    padding: 0.3rem 0;
     width: 100%;
 }
 
+.post-btn-wrapper {
+    display: flex;
+    width: 100%;    
+}
+
+@media (max-width: 400px) {
+    .post-btn-wrapper {
+        flex-direction: column;
+    }
+}
+.cocktails .cocktail h2 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    margin: 0rem 0 1rem;
+    color: #750000;
+}
+
+.cocktails .cocktail p.description {
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 0.03em;
+    margin: 0rem 0 1rem;
+    color: #535353;
+}
+
+a.new-post {
+    padding: 0.4rem 1rem !important;
+    background: #0f0f0f;
+    color: white !important;
+    margin-left: 1rem;
+}
+
+a.new-post:hover {
+    background: #1d1d1d;
+}
+.cocktails .cocktail p.info {
+    font-size: 0.7rem;
+    color: #535353;
+}
 
 /* HACKS */
 

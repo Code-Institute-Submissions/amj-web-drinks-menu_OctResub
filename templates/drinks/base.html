@@ -44,7 +44,7 @@
                     </li>
                     {% if perms.blog.add_post %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'add_post' %}">Add Post</a>
+                        <a class="nav-link new-post" href="{% url 'add_post' %}">+ Add Post</a>
                     </li>
                     {% endif %}
                     {% else %}
