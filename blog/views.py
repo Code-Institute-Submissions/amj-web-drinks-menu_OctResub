@@ -93,15 +93,48 @@ class DeletePost(View):
 
 class EditPost(View):
     """ Athor can edit post """
-    def get(self, request, id):
-        template_name = 'drinks/add_post.html'
+    def get(self, request, user_id):
+        template_name = 'drinks/edit_post.html'
         context = {
-            'form': PostForm(instance=Post.objects.get(id=id)),
+            'form': PostForm(instance=Post.objects.get(id=user_id)),
             'message': ''
         }
 
         return render(request, template_name, context)
-    def post(self, request, id):   
+
+    def post(self, request, user_id):
+        
+        existing_post = get_object_or_404(Post, id = user_id)
+
+        form = PostForm(request.POST or None, instance = existing_post)
+        
+        if form.is_valid():
+            print('Post is valid... saving post.')
+            form.save()
+            return HttpResponseRedirect('/')
+            
+        else:
+            print('Post is invalid.')
+            print(form.errors)
+            return HttpResponseRedirect('/')
+
+    def post2(self, request, id):
+        author = request.user
+
+        # this is for creating an entirely new post
+        # post = PostForm(request.POST, request.FILES)
+
+        # this is for updating
+        current_post = Post.objects.get(id=id)
+        post = PostForm(instance=current_post, data=request.post)
+        
+        if post.is_valid():
+            print('Post is valid... saving post.')
+            # prepared_post = post.save(commit=False)
+            post.author = author
+            post.slug = slugify(request.POST['title'])
+            post.save()
+
         # author = request.user
         # if author.has_perm('blog.add_post'):
         #     post = Post.objects.get(id=id)
@@ -109,14 +142,13 @@ class EditPost(View):
         #     post.excerpt = request.POST['excerpt']
         #     post.content = request.POST['content']
         #     post.status = request.POST['status']
-        print(request)
-        post = Post.objects.get(id=id)
-        form = PostForm(instance=post, data=request.post)
-        if(form.is_valid()):
-            form.save()
-            return HttpResponseRedirect(reverse('post_detail', args=[post.slug]))
+        # post = Post.objects.get(id=id)
+        # form = PostForm(instance=post, data=request.post)
+        # if form.is_valid():
+        #     form.save()
+        #     return HttpResponseRedirect(reverse('post_detail', args=[post.slug]))
 
-        return HttpResponseRedirect(reverse('post_detail', args=[post.slug]))
+        return redirect('/')
 
 
 class PostLike(View):

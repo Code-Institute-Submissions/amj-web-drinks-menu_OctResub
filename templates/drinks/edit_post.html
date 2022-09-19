@@ -1,0 +1,27 @@
+{% extends 'drinks/base.html' %}
+
+{% block content %}
+
+
+<h1>Edit Post</h1>
+
+{% if message %}
+<p style="font-weight: bold; color: red;">{{ message }}
+{% endif %}
+
+<p id="form_validation_message"></p>
+
+<div class="form_container">
+<form method="POST" id="add_post_form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-secondary">Post</button>
+</form>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+{% load static %}
+        <script src="{% static 'scripts/validate_add_post.js' %}"></script>
+{% endblock scripts %}
