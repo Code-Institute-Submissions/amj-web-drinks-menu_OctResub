@@ -2,21 +2,32 @@
 
 {% block content %}
 
+{% load cloudinary %}
 
-<h1>Edit Post</h1>
 
 {% if message %}
 <p style="font-weight: bold; color: red;">{{ message }}
 {% endif %}
 
 <p id="form_validation_message"></p>
-
+<div class="container login-page">
+    <div class="row">
+        <div class="col-md-8 mt-3 offset-md-2">
+            <h1>Edit Post</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 mt-3 offset-md-2">
+            <form enctype="multipart/form-data" method="POST" class="post" id="add_post_form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+        </div>
+    </div>
+</div>
 <div class="form_container">
-<form method="POST" id="add_post_form">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-secondary">Post</button>
-</form>
+
 </div>
 
 {% endblock %}

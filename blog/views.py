@@ -6,6 +6,7 @@ from django.template import loader
 from .models import Post
 from .forms import CommentForm, PostForm, UpdatePostForm
 
+import cloudinary.uploader
 
 def frontpage(_):
     template = loader.get_template('drinks/frontpage.html')
@@ -92,6 +93,7 @@ class DeletePost(View):
         return HttpResponseRedirect(reverse('home'))
 
 class EditPost(View):
+
     """ Athor can edit post """
     def get(self, request, user_id):
         template_name = 'drinks/edit_post.html'
@@ -105,6 +107,12 @@ class EditPost(View):
     def post(self, request, user_id):
         
         existing_post = get_object_or_404(Post, id = user_id)
+        # file = request.data.get('featured_image')
+        # upload_data = cloudinary.uploader.upload(file)
+
+        file = request.FILES['featured_image']
+        # upload_data = cloudinary.uploader.upload(file)
+        # url = upload_data['secure_url']
 
         form = UpdatePostForm(request.POST or None, instance = existing_post)
         
@@ -113,6 +121,9 @@ class EditPost(View):
 
             # update slug
             form.instance.slug = slugify(request.POST['title'])
+
+            # update features_image
+            form.instance.featured_image = cloudinary.uploader.upload_resource(file)
             form.save()
             return HttpResponseRedirect('/' + form.instance.slug)
 

@@ -12,7 +12,7 @@
 <p id="form_validation_message"></p>
 
 <div class="form_container">
-<form method="POST" id="add_post_form">
+<form  enctype="multipart/form-data" method="POST" id="add_post_form">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit" class="btn btn-secondary">Post</button>

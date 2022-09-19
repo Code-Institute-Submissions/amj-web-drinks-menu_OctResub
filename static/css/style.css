@@ -187,6 +187,17 @@ body {
     padding: 1rem 1rem;
     background-color: rgba(255,255,255, 0.3);
     padding: 3rem 1rem;
+    
+}
+
+.login-page form.post {
+    padding: 1rem 1rem;
+    background-color: rgba(255,255,255, 0.3);
+    padding: 3rem 1rem;
+
+    gap: 1.5rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .login-page form label {
@@ -243,3 +254,13 @@ body {
     background-color: #E84610;
     width: 100%;
 }
+
+
+/* HACKS */
+
+.card-img-top {
+    width: 100%;
+    height: 40vh;
+    object-fit: cover;
+    }
+    
