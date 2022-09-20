@@ -83,7 +83,7 @@ The Drinks Menu is built using **Pyhton, PostGresSQL, Bootstrap, Javascript and 
 -   https://stackoverflow.com/questions/33003173/linking-a-cloudinary-image-upload-to-a-django-model-field
 
 **General Fixes**
-
+-   https://stackoverflow.com/questions/4642596/how-do-i-check-whether-this-user-is-anonymous-or-actually-a-user-on-my-system
 -   https://stackoverflow.com/questions/57674348/typeerror-post-got-an-unexpected-keyword-argument
 
 **Bootstrap**

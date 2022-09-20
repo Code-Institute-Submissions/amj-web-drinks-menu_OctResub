@@ -15,6 +15,8 @@ def frontpage(_):
 
 class Homepage(View):
     def get(self, request):
+        if not request.user.is_anonymous:
+            return HttpResponseRedirect('/cocktails')
         template_name = "drinks/index.html"
         return render(request, template_name)
 
