@@ -288,6 +288,10 @@ body {
     color: #535353;
 }
 
+h3.method {
+    margin-bottom: 1rem;
+}
+
 a.new-post {
     padding: 0.4rem 1rem !important;
     background: #0f0f0f;
