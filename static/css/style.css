@@ -102,7 +102,7 @@ body {
 
 .post-link:hover,
 .page-link {
-    color: #E84610;
+    color: black;
 }
 
 .post-title {
@@ -116,36 +116,36 @@ body {
 }
 
 .btn-signup {
-    background-color: #23BBBB;
+    background-color: black;
     color: #fff;
 }
 
 .btn-signup:hover,
 .btn-signup:active {
     background-color: #fff;
-    color: #23BBBB;
+    color: orange;
 }
 
 .link {
-    color: #23BBBB;
+    color: orange;
     text-decoration: none;
 }
 
 .link:hover,
 .link:active {
-    color: #445261;
+    color: orange;
     text-decoration: underline;
 }
 
 .btn-like {
-    color: #E84610;
+    color: black;
     border: none;
     background: transparent;
 }
 
 .btn-like:hover,
 .btn-like:active {
-    color: #E84610;
+    color: black;
     background: transparent;
     border: none;
 }
@@ -158,7 +158,7 @@ body {
 }
 
 .footer {
-    background-color: rgb(116, 6, 6);
+    background-color: black;
 }
 
 .login-home {
@@ -172,7 +172,7 @@ body {
 }
 
 .login-home-text, .login-home h3{
-    color: yellow;
+    color: white;
 }
 
 .login-page {

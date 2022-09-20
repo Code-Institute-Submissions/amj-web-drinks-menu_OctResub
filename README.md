@@ -34,7 +34,7 @@ The Drinks Menu is built using **Pyhton, PostGresSQL, Bootstrap, Javascript and 
 ## Functionality Requirments 
 * Full CRUD functionality
 * Intuitive navigation
-* Responsive to different screen sizes
+* Responsive to different screen sizes [http://www.responsinator.com/?url=https%3A%2F%2F8000-amjweb-drinksmenu-kaemokxwq2e.ws-us65.gitpod.io%2F]
 
 ## Errors
 * errors
@@ -45,6 +45,14 @@ The Drinks Menu is built using **Pyhton, PostGresSQL, Bootstrap, Javascript and 
 **HTML**
 
 **CSS**
+<p>
+    <a href="https://jigsaw.w3.org/css-validator/check/referer">
+        <img style="border:0;width:88px;height:31px"
+            src="https://jigsaw.w3.org/css-validator/images/vcss"
+            alt="Valid CSS!" />
+    </a>
+</p>
+            
 
 **JS**
 
@@ -53,3 +61,46 @@ The Drinks Menu is built using **Pyhton, PostGresSQL, Bootstrap, Javascript and 
 **Lighthouse**
 
 **Responsive Design**
+
+## Documentation used
+
+**Django**
+- https://docs.djangoproject.com/en/4.1/
+
+**Create Post**
+-   https://stackoverflow.com/questions/6253611/how-to-get-the-id-of-a-just-created-record-in-django
+
+**Update Post**
+
+-   https://www.geeksforgeeks.org/update-view-function-based-views-django/
+-   https://docs.djangoproject.com/en/4.1/topics/class-based-views/intro/
+
+**Image Upload to Cloudinary**
+
+-   https://docs.djangoproject.com/en/4.1/topics/http/file-uploads/
+-   https://cloudinary.com/documentation/django_integration
+-   https://cloudinary.com/documentation/django_image_and_video_upload
+-   https://stackoverflow.com/questions/33003173/linking-a-cloudinary-image-upload-to-a-django-model-field
+
+**General Fixes**
+
+-   https://stackoverflow.com/questions/57674348/typeerror-post-got-an-unexpected-keyword-argument
+
+**Bootstrap**
+
+**Getting Images same height**
+
+-   https://stackoverflow.com/questions/37287153/how-to-get-images-in-bootstraps-card-to-be-the-same-height-width
+
+## Thingy
+
+I used unplash to source many of the pictures -https://unsplash.com/
+
+## Fixes and Changes to make in the future
+
+* Change the excerpt to method(how to make the drink) and the contents to ingredients. 
+* The Sign Up button on the index page does not show an error when a user who is already logged in clicks on it. 
+* The text size changes on the log in page. 
+* It is not obvious that The Drinks Menu button will take you to the blog. 
+* After signing up the user needs to be redirected straight to the blog. 
+* After deleting a post it takes the user to the index page and not the blog. 
