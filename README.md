@@ -3,11 +3,7 @@
 The Drinks Menu is a place for visitors to find and share cocktail recipes. Users are able to register an account, then share and mange their own cocktail recipes. 
 ## Installation
 
-Here is a [link](https://pip.pypa.io/en/stable/) to install foobar.
-
-```bash
-pip install foobar
-```
+Here is a [link](https://drinks-menu.herokuapp.com/) to deployed app
 
 ## Project Overview
 
