@@ -5,8 +5,8 @@ from django.utils.text import slugify
 from django.template import loader
 from .models import Post
 from .forms import CommentForm, PostForm, UpdatePostForm
-
 import cloudinary.uploader
+
 
 def frontpage(_):
     template = loader.get_template('drinks/frontpage.html')
@@ -94,6 +94,7 @@ class DeletePost(View):
 
         return HttpResponseRedirect(reverse('home'))
 
+
 class EditPost(View):
 
     """ Author can edit post """
@@ -107,14 +108,14 @@ class EditPost(View):
         return render(request, template_name, context)
 
     def post(self, request, user_id):
-        
-        existing_post = get_object_or_404(Post, id = user_id)
+
+        existing_post = get_object_or_404(Post, id=user_id)
 
         # look for a featured image in the multifile imports
         file = request.FILES.get('featured_image', None)
 
-        form = UpdatePostForm(request.POST or None, instance = existing_post)
-        
+        form = UpdatePostForm(request.POST or None, instance=existing_post)
+
         if form.is_valid():
             print('Post is valid... saving post.')
 
@@ -122,9 +123,9 @@ class EditPost(View):
             form.instance.slug = slugify(request.POST['title'])
 
             # update features_image
-            if file != None:
+            if not file:
                 form.instance.featured_image = cloudinary.uploader.upload_resource(file)
-            
+
             form.save()
             return HttpResponseRedirect('/' + form.instance.slug)
 
@@ -132,6 +133,7 @@ class EditPost(View):
             print('Post is invalid.')
             print(form.errors)
             return HttpResponseRedirect('/')
+
 
 class PostLike(View):
     def post(self, request, slug, *args, **kwargs):
@@ -147,29 +149,28 @@ class PostLike(View):
 class AddPostView(View):
     def post(self, request, *aggs, **kwargs):
         author = request.user
-        
+
         # look for a featured image in the multifile imports
         file = request.FILES.get('featured_image', None)
-        
-        if author.has_perm('blog.add_post'):
-            new_post = PostForm(request.POST, request.FILES)
-            # new_post = PostForm(initial={
-            #     'title': request.POST['title'],
-            #     'featured_image': request.POST['featured_image'],
-            #     'excerpt': request.POST['excerpt'],
-            #     'content': request.POST['content'],
-            #     'status': request.POST['status'],
-            # })
-            post_save = new_post.save(commit=False)
-            post_save.slug = slugify(request.POST['title'])
-            post_save.author = author
-            
-            # add features_image
-            if file != None:
-                post_save.featured_image = cloudinary.uploader.upload_resource(file)
-            
-            post_save.save()
-            return redirect('/' + post_save.slug)
+
+        new_post = PostForm(request.POST, request.FILES)
+        # new_post = PostForm(initial={
+        #     'title': request.POST['title'],
+        #     'featured_image': request.POST['featured_image'],
+        #     'excerpt': request.POST['excerpt'],
+        #     'content': request.POST['content'],
+        #     'status': request.POST['status'],
+        # })
+        post_save = new_post.save(commit=False)
+        post_save.slug = slugify(request.POST['title'])
+        post_save.author = author
+
+        # add features_image
+        if not file:
+            post_save.featured_image = cloudinary.uploader.upload_resource(file)
+
+        post_save.save()
+        return redirect('/' + post_save.slug)
 
         template_name = 'drinks/add_post.html'
         context = {
@@ -182,6 +183,6 @@ class AddPostView(View):
         template_name = 'drinks/add_post.html'
         context = {
             'form': PostForm,
-            'message': ''  
+            'message': ''
         }
         return render(request, template_name, context)

@@ -16,4 +16,4 @@ post_form.addEventListener('submit', (e) => {
         errorMessage('Your title is too short');
         e.preventDefault();
     }
-})
+});
