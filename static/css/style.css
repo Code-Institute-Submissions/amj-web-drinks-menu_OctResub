@@ -307,11 +307,10 @@ a.new-post:hover {
     color: #535353;
 }
 
-HACKS
-
+/* Bootstrap Overwrite */
 .card-img-top {
     width: 100%;
     height: 40vh;
     object-fit: cover;
-    }
+}
     

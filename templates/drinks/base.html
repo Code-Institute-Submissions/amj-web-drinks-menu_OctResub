@@ -45,9 +45,6 @@
                     <li class="nav-item">
                         <a class="nav-link new-post" href="{% url 'add_post' %}">+ Add Post</a>
                     </li>
-                    <li class="nav-item" style="display:flex; align-items:center;margin-left:1rem;color: rgba(0,0,0,.55);">
-                        Hello, {{request.user.username}}
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
                     </li>
