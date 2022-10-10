@@ -29,6 +29,23 @@ The Drinks Menu is built using **Pyhton, PostGresSQL, Bootstrap, Javascript and 
 * Search and view specific recipes
 * Manage and authenticate user's posts and comments
 
+## Design
+
+**Wireframes**
+
+* [Home Page](static/images/home-wf.png)
+* [Register Page](static/images/register-wf.png)
+* [Drinks Page](static/images/drinks-wf.png)
+* [Create New Post](static/images/create-new-wf.png)
+* [Edit Post](static/images/edit-wf.png)
+* [Mobile Home Page](static/images/home-phone-wf.png)
+* [Mobile Drinks Page](static/images/drinks-phone-wf.png)
+* [Mobile New Post](static/images/new-post-phone-wf.png)
+* [Mobile Register](static/images/register-phone-wf.png)
+* [Mobie Sign In](static/images/sign-in-phone-wf.png)
+
+
+
 ## Functionality Requirments 
 * Full CRUD functionality
 * Intuitive navigation
