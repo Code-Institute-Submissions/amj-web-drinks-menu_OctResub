@@ -3,8 +3,10 @@
 The Drinks Menu is a place for visitors to find and share cocktail recipes. Users are able to register an account, then share and mange their own cocktail recipes. 
 ## Installation
 
-Here is a [link](https://drinks-menu.herokuapp.com/) to deployed app
+Here is a [link](https://drinks-menu.herokuapp.com/) to the deployed app. 
 
+![Front Page](static/images/frontpage.png)
+![Drinks Page](static/images/Drinkspage.png)
 ## Project Overview
 
 The Drinks Menu is built using **Pyhton, PostGresSQL, Bootstrap, Javascript and Django** the images are being managed by **Cloudinary.** 
@@ -30,16 +32,17 @@ The Drinks Menu is built using **Pyhton, PostGresSQL, Bootstrap, Javascript and 
 ## Functionality Requirments 
 * Full CRUD functionality
 * Intuitive navigation
-* Responsive to different screen sizes [http://www.responsinator.com/?url=https%3A%2F%2F8000-amjweb-drinksmenu-kaemokxwq2e.ws-us65.gitpod.io%2F]
+* Responsive to different screen sizes [Link](http://www.responsinator.com/?url=https%3A%2F%2F8000-amjweb-drinksmenu-kaemokxwq2e.ws-eu64.gitpod.io%2Fcocktails%2F)
 
 ## Errors
-* errors
-* errors
-* errors
+* The Sign In button in the text box on the front page doesn't work. I didn't check it before deployment. (VERY silly I know).
+* The welcome message next to the add post button is no needed and in the wrong place.
+* The text size changes on the log in page.  
+* There are probably MANY more, time was huge issue for me in this project after a lengthy leave of abscence.
 
 ## Testing
 **HTML**
-
+![HTML Test](static/images/homepagehtmlcheck.png)
 **CSS**
 <p>
     <a href="https://jigsaw.w3.org/css-validator/check/referer">
@@ -51,12 +54,19 @@ The Drinks Menu is built using **Pyhton, PostGresSQL, Bootstrap, Javascript and 
             
 
 **JS**
+JS threw up an error for 'e' not being defined but as it is parsed through the DOMS I feel it is safe to ignore this. 
+![JS Test](static/images/eispharsedinthroughtthedoms.png)
 
 **Python**
+Lines are too long are the only errors when running a PEP-8 check. I don't think this should be an error. 
+![PEP-8](static/images/PEP-8onlyiflinetolongleft.png)
 
 **Lighthouse**
+70+ on all scores in Lighthouse isn't the best, but acceptable.....I hope. 
+![PEP-8](static/images/Lighthouse.png)
 
 **Responsive Design**
+Responsive to different screen sizes [Link](http://www.responsinator.com/?url=https%3A%2F%2F8000-amjweb-drinksmenu-kaemokxwq2e.ws-eu64.gitpod.io%2Fcocktails%2F)
 
 ## Documentation used
 
@@ -88,15 +98,15 @@ The Drinks Menu is built using **Pyhton, PostGresSQL, Bootstrap, Javascript and 
 
 -   https://stackoverflow.com/questions/37287153/how-to-get-images-in-bootstraps-card-to-be-the-same-height-width
 
-## Thingy
+## Acknowledgements
 
-I used unplash to source many of the pictures -https://unsplash.com/
+* Most of the picture were taken from [unsplash.com](https://unsplash.com/)
+* All of the recipies are from [bbcgoodfood.com](https://www.bbcgoodfood.com/)
+
+**The enitire project is based on the code along tutorial "I think therefore I blog" from [The Code Insitute](https://codeinstitute.net/full-stack-software-development-diploma/?utm_term=the%20code%20institute&utm_campaign=CI+-+UK+-+Search+-+Brand&utm_source=adwords&utm_medium=ppc&hsa_acc=8983321581&hsa_cam=1578649861&hsa_grp=62188641240&hsa_ad=581730217381&hsa_src=g&hsa_tgt=kwd-572567981978&hsa_kw=the%20code%20institute&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gclid=CjwKCAjwyaWZBhBGEiwACslQo-MjHk10r88-t4IPQa_EDUihpydmI6C5nLpOwKQydYkoDnId_dncuhoCP_UQAvD_BwE). Without their course material and their EXCELLENT tutors I would never have been able to complete this project**
 
 ## Fixes and Changes to make in the future
 
-* Change the excerpt to method(how to make the drink) and the contents to ingredients. 
-* The Sign Up button on the index page does not show an error when a user who is already logged in clicks on it. 
-* The text size changes on the log in page. 
-* It is not obvious that The Drinks Menu button will take you to the blog. 
-* After signing up the user needs to be redirected straight to the blog. 
-* After deleting a post it takes the user to the index page and not the blog. 
+- The general UI and sytling of the site isn't quiet what I want it to be but I ran out of time. 
+    it is not the easiest site for a user to use and I will correct this after reciving my assesment results, pass or fail. 
+
