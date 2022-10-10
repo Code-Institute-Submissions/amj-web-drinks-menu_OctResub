@@ -31,6 +31,12 @@ The Drinks Menu is built using **Pyhton, PostGresSQL, Bootstrap, Javascript and 
 
 ## Design
 
+I wanted the home page to be dark and atmospheric to try and replicate walking into a swanky cocktail bar. 
+In contrast the drinks page is light. I want the pictures of the cocktails to be the first thing that catches the users eye. I feel that it also encourages the user
+to take and/or post beautiful pictures of their own cocktails. 
+
+I chose to use Inter font from [Google Fonts](https://fonts.google.com/specimen/Inter) as it is easy to read while having a modern sleek look. 
+
 **Wireframes**
 
 * [Home Page](static/images/home-wf.png)
@@ -43,6 +49,8 @@ The Drinks Menu is built using **Pyhton, PostGresSQL, Bootstrap, Javascript and 
 * [Mobile New Post](static/images/new-post-phone-wf.png)
 * [Mobile Register](static/images/register-phone-wf.png)
 * [Mobie Sign In](static/images/sign-in-phone-wf.png)
+
+
 
 
 
@@ -83,7 +91,7 @@ Lines are too long are the only errors when running a PEP-8 check. I don't think
 ![PEP-8](static/images/Lighthouse.png)
 
 **Responsive Design**
-Responsive to different screen sizes [Link](http://www.responsinator.com/?url=https%3A%2F%2F8000-amjweb-drinksmenu-kaemokxwq2e.ws-eu64.gitpod.io%2Fcocktails%2F)
+Responsive to different screen sizes [Link](http://www.responsinator.com/?url=https%3A%2F%2F8000-amjweb-drinksmenu-kaemokxwq2e.ws-eu70.gitpod.io%2F)
 
 ## Documentation used
 
