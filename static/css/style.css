@@ -3,15 +3,29 @@ body {
     font-family: "Inter", Arial, Helvetica, sans-serif;
 }
 
+.title {
+    font-family: Lato, sans-serif;
+    font-size: 3.0rem;
+    font-weight: 700;
+    color: #c9470b;
+}
+
+.navbar-brand {
+    font-family: Lato, sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #c9470b
+}
+
 .brand {
     font-family: Lato, sans-serif;
     font-size: 1.4rem;
     font-weight: 700;
-    color: #4A4A4F;
+    color: #c9470b
 }
 
 .red-o {
-    color: #E84610;
+    color: #c9470b;
 }
 
 .thin {
@@ -123,17 +137,17 @@ body {
 .btn-signup:hover,
 .btn-signup:active {
     background-color: #fff;
-    color: orange;
+    color: #c9470b;
 }
 
 .link {
-    color: orange;
+    color: #c9470b;
     text-decoration: none;
 }
 
 .link:hover,
 .link:active {
-    color: orange;
+    color: #c9470b;
     text-decoration: underline;
 }
 

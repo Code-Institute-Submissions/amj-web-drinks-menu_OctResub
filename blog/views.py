@@ -54,6 +54,7 @@ class PostDetail(View):
             context
         )
 
+
     def post(self, request, slug, *args, **kwargs):
 
         queryset = Post.objects.filter(status=1)
