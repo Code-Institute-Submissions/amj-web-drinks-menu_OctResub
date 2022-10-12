@@ -93,6 +93,18 @@ Lines are too long are the only errors when running a PEP-8 check. I don't think
 **Responsive Design**
 Responsive to different screen sizes [Link](http://www.responsinator.com/?url=https%3A%2F%2F8000-amjweb-drinksmenu-kaemokxwq2e.ws-eu70.gitpod.io%2F)
 
+**Manual Testing**
+| Test| Goal | Result |
+| :--- | :--- | :--- |
+| Drinks menu logo renders across all possible device | with the font not changing | Pass |
+| Responsiveness | Drinks Menu app to be responsivess across all device | Pass |
+| Flash Messages | Messages to successfully display | Pass |
+| Main Navlinks | Navlinks to work and not hiding a 500 internal server error | Pass |
+| Associated Recipes | These get deleted when a category relevant to them is deleted by superadmin | Pass |
+| Scroll to Top button | Works as expected without causing conflict with Jinja templating and or JavaScript | Pass |
+| Modal is semantically correct | All HTML Validation to Pass and modal works with out causing a 500 Internal Server Error | Pass |
+
+
 ## Documentation used
 
 **Django**
