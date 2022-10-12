@@ -44,6 +44,10 @@ body {
     background-color: #F9FAFC;
 }
 
+.main-bg.intro {
+    /* background-color: #F9FAFC; */
+    background-color: black;
+}
 .card {
     border: none;
     background-color: transparent;
@@ -167,7 +171,8 @@ body {
 .home-background {
     background-size: cover;
     overflow: hidden;
-    width: 100%;
+    /* width: 100%; */
+    float: right;
     height: 100%;
 }
 
