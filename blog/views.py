@@ -165,6 +165,7 @@ class AddPostView(View):
         post_save = new_post.save(commit=False)
         post_save.slug = slugify(request.POST['title'])
         post_save.author = author
+        post_save.status = 1 #(1, "Published")
 
         # add features_image
         if not file:

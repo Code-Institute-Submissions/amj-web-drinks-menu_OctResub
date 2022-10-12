@@ -11,9 +11,15 @@ function errorMessage(message){
 }
 
 post_form.addEventListener('submit', (e) => {
-    
-    if (title.length < 6) {
-        errorMessage('Your title is too short');
+    if(document.getElementById("id_featured_image").value === '') {
         e.preventDefault();
+        alert('Please provide a image.');
+        errorMessage('Please provide a image.');
     }
+
+    // if (title.length < 6) {
+    //     alert('Your title is too short');
+    //     errorMessage('Your title is too short');
+    //     e.preventDefault();
+    // }
 });

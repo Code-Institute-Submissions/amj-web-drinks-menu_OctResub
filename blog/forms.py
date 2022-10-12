@@ -11,7 +11,7 @@ class CommentForm(forms.ModelForm):
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        exclude = ['author', 'updated_on', 'created_on', 'likes', 'slug']
+        exclude = ['author', 'updated_on', 'created_on', 'likes', 'slug', 'status']
         labels = {
             'excerpt': 'Method',
             'content': 'Ingredients'
@@ -20,7 +20,7 @@ class PostForm(forms.ModelForm):
 class UpdatePostForm(forms.ModelForm):
     class Meta:
         model = Post
-        exclude = []
+        exclude = ['author', 'updated_on', 'created_on', 'likes', 'slug', 'status']
         labels = {
             'excerpt': 'Method',
             'content': 'Ingredients'
