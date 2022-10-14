@@ -3,6 +3,7 @@ from django.views import generic, View
 from django.http import HttpResponseRedirect, HttpResponse
 from django.utils.text import slugify
 from django.template import loader
+from django.contrib import messages
 from .models import Post
 from .forms import CommentForm, PostForm, UpdatePostForm
 import cloudinary.uploader
@@ -32,6 +33,12 @@ class CocktailsList(generic.ListView):
 class PostDetail(View):
 
     def get(self, request, slug, *args, **kwargs):
+
+        # Redirects user to the website entry if not logged in
+        if request.user.is_anonymous:
+            return HttpResponseRedirect('/')
+
+
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by("-created_on")
@@ -45,7 +52,8 @@ class PostDetail(View):
                 "commented": False,
                 "liked": liked,
                 "comment_form": CommentForm(),
-                "is_author": post.author == request.user
+                "is_author": post.author == request.user,
+                "new_post": request.GET.get('new-post', '')
                  }
 
         return render(
@@ -88,34 +96,45 @@ class PostDetail(View):
 
 
 class DeletePost(View):
-    """ Athor can delete post """
+    """ Author can delete post """
     def post(self, request, id):
         post = Post.objects.get(id=id)
         post.delete()
-
+        messages.success(request, 'DELETED SUCCESSFULLY!')
         return HttpResponseRedirect(reverse('home'))
 
 
 class EditPost(View):
 
     """ Author can edit post """
-    def get(self, request, user_id):
+    def get(self, request,id):
         template_name = 'drinks/edit_post.html'
+        existing_post = get_object_or_404(Post, id=id)
+        form = UpdatePostForm(instance=existing_post)
         context = {
-            'form': UpdatePostForm(instance=Post.objects.get(id=user_id)),
+            'form': form,
             'message': ''
         }
-
         return render(request, template_name, context)
 
-    def post(self, request, user_id):
+    def post(self, request, id):
 
-        existing_post = get_object_or_404(Post, id=user_id)
+        # user = request.user
+        # post = Post.objects.get(id=id)
+
+        # form = UpdatePostForm(request.POST,request.FILES,instance=Post)
+        # if form.is_valid():
+        #     form.save()
+        #     messages.success(request, 'Successfully edited!')
+        #     return redirect('cocktails_list')
+
+        # form =  UpdatePostForm(instance=Post.objects.get(id=user_id))
+        existing_post = get_object_or_404(Post, id=id)
 
         # look for a featured image in the multifile imports
         file = request.FILES.get('featured_image', None)
 
-        form = UpdatePostForm(request.POST or None, instance=existing_post)
+        form = UpdatePostForm(request.POST,request.FILES,instance=existing_post)
 
         if form.is_valid():
             print('Post is valid... saving post.')
@@ -128,11 +147,13 @@ class EditPost(View):
                 form.instance.featured_image = cloudinary.uploader.upload_resource(file)
 
             form.save()
+            messages.success(request, 'Successfully edited!')
             return HttpResponseRedirect('/' + form.instance.slug)
 
         else:
             print('Post is invalid.')
             print(form.errors)
+            messages.error(request, 'Something went wrong!')
             return HttpResponseRedirect('/')
 
 
@@ -172,7 +193,8 @@ class AddPostView(View):
             post_save.featured_image = cloudinary.uploader.upload_resource(file)
 
         post_save.save()
-        return redirect('/' + post_save.slug)
+        messages.success(request, 'Successfully createdddddd!')
+        return redirect('/' + post_save.slug + '?new-post=true')
 
         template_name = 'drinks/add_post.html'
         context = {

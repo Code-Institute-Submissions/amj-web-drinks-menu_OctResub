@@ -1,11 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
-
+# import uuid
 STATUS = ((0, "Draft"), (1, "Published"))
 
 
 class Post(models.Model):
+    # id = models.UUIDField(default=uuid,unique=True,primary_key=True,editable=False)
+    # id =  models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(

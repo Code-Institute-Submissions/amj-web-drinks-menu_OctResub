@@ -50,10 +50,6 @@ I chose to use Inter font from [Google Fonts](https://fonts.google.com/specimen/
 * [Mobile Register](static/images/register-phone-wf.png)
 * [Mobie Sign In](static/images/sign-in-phone-wf.png)
 
-
-
-
-
 ## Functionality Requirments 
 * Full CRUD functionality
 * Intuitive navigation
@@ -125,11 +121,15 @@ Responsive to different screen sizes [Link](http://www.responsinator.com/?url=ht
 -   https://cloudinary.com/documentation/django_image_and_video_upload
 -   https://stackoverflow.com/questions/33003173/linking-a-cloudinary-image-upload-to-a-django-model-field
 
+**Capturing URL parameters**
+- https://stackoverflow.com/questions/150505/capturing-url-parameters-in-request-get
+
 **General Fixes**
 -   https://stackoverflow.com/questions/4642596/how-do-i-check-whether-this-user-is-anonymous-or-actually-a-user-on-my-system
 -   https://stackoverflow.com/questions/57674348/typeerror-post-got-an-unexpected-keyword-argument
 
-**Bootstrap**
+**Bootstrap Alerts**
+- https://getbootstrap.com/docs/4.0/components/alerts/
 
 **Getting Images same height**
 

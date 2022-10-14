@@ -1,6 +1,15 @@
 {% extends 'drinks/base.html' %} {% block content %}
 {% load crispy_forms_tags %}
-
+{% if new_post %}
+<script>
+    alert('Your post was created successfully')
+    setTimeout(function () {
+    let bootstrapAlert = new bootstrap.Alert('Your post was created successfully.');
+        bootstrapAlert.close();
+    }, 1200);
+</script>
+<!-- <div class="post-created-successfully">Your post was created successfully.</div> -->
+{% endif %}
 <div class="masthead">
     <div class="container">
         <div class="row g-0">
