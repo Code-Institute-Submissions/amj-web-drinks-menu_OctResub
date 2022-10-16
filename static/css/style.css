@@ -348,3 +348,9 @@ a.new-post:hover {
 textarea {
     max-width: 100%;
 }
+.btn-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: auto;
+}
