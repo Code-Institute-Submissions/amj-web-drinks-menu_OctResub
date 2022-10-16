@@ -8,8 +8,7 @@ from .models import Post
 
 @ receiver(post_delete, sender=Post)
 def deleteBlog(sender, instance, **kwargs):
-    print(f'this guy is deleted = {instance.title}')
-
+    pass
 # @receiver(post_save, sender=User)
 # def createProfile(sender,instance,created,**kwargs):
 #     if created:
