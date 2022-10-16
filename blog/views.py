@@ -94,7 +94,7 @@ class DeletePost(View):
     def post(self, request, id):
         post = Post.objects.get(id=id)
         post.delete()
-        # messages.success(request, 'DELETED SUCCESSFULLY!')
+        messages.success(request, 'DELETED SUCCESSFULLY!')
         return HttpResponseRedirect(reverse('home'))
 
 
@@ -141,7 +141,7 @@ class EditPost(View):
                 form.instance.featured_image = cloudinary.uploader.upload_resource(file)
 
             form.save()
-            # messages.success(request, 'Successfully edited!')
+            messages.success(request, 'Successfully edited!')
             return HttpResponseRedirect('/' + form.instance.slug)
 
         else:
