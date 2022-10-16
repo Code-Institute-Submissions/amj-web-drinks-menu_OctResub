@@ -94,7 +94,7 @@ class DeletePost(View):
     def post(self, request, id):
         post = Post.objects.get(id=id)
         post.delete()
-        messages.success(request, 'DELETED SUCCESSFULLY!')
+        # messages.success(request, 'DELETED SUCCESSFULLY!')
         return HttpResponseRedirect(reverse('home'))
 
 
@@ -141,7 +141,7 @@ class EditPost(View):
                 form.instance.featured_image = cloudinary.uploader.upload_resource(file)
 
             form.save()
-            messages.success(request, 'Successfully edited!')
+            # messages.success(request, 'Successfully edited!')
             return HttpResponseRedirect('/' + form.instance.slug)
 
         else:
@@ -187,7 +187,7 @@ class AddPostView(View):
             post_save.featured_image = cloudinary.uploader.upload_resource(file)
 
         post_save.save()
-        messages.success(request, 'Successfully createdddddd!')
+        # messages.success(request, 'Successfully created!')
         return redirect('/' + post_save.slug + '?new-post=true')
 
         template_name = 'drinks/add_post.html'
@@ -198,9 +198,9 @@ class AddPostView(View):
         return render(request, template_name, context)
 
     def get(self, request):
-        template_name = 'drinks/add_post.html'
-        context = {
-            'form': PostForm,
-            'message': ''
-        }
-        return render(request, template_name, context)
+            template_name = 'drinks/add_post.html'
+            context = {
+                'form': PostForm,
+                'message': ''
+            }
+            return render(request, template_name, context)
