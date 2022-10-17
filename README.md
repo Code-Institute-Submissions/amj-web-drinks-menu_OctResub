@@ -25,8 +25,7 @@ The Drinks Menu is built using **Pyhton, PostGresSQL, Bootstrap, Javascript and 
 * Comment on other user's recipes
 
 **Site Admin Goals - As an administrator, I want to be able to:**
-* Create, Edit and delete my own cocktail recipes
-* Search and view specific recipes
+* Create, Edit and delete my own and users cocktail recipes
 * Manage and authenticate user's posts and comments
 
 ## Design
@@ -56,7 +55,6 @@ I chose to use Inter font from [Google Fonts](https://fonts.google.com/specimen/
 * Responsive to different screen sizes [Link](http://www.responsinator.com/?url=https%3A%2F%2F8000-amjweb-drinksmenu-kaemokxwq2e.ws-eu64.gitpod.io%2Fcocktails%2F)
 
 ## Errors
-* The Sign In button in the text box on the front page doesn't work. I didn't check it before deployment. (VERY silly I know).
 * The welcome message next to the add post button is no needed and in the wrong place.
 * The text size changes on the log in page.  
 * There are probably MANY more, time was huge issue for me in this project after a lengthy leave of abscence.
@@ -89,17 +87,38 @@ Lines are too long are the only errors when running a PEP-8 check. I don't think
 **Responsive Design**
 Responsive to different screen sizes [Link](http://www.responsinator.com/?url=https%3A%2F%2F8000-amjweb-drinksmenu-kaemokxwq2e.ws-eu70.gitpod.io%2F)
 
-**Manual Testing**
-| Test| Goal | Result |
-| :--- | :--- | :--- |
-| Drinks menu logo renders across all possible device | with the font not changing | Pass |
-| Responsiveness | Drinks Menu app to be responsivess across all device | Pass |
-| Flash Messages | Messages to successfully display | Pass |
-| Main Navlinks | Navlinks to work and not hiding a 500 internal server error | Pass |
-| Associated Recipes | These get deleted when a category relevant to them is deleted by superadmin | Pass |
-| Scroll to Top button | Works as expected without causing conflict with Jinja templating and or JavaScript | Pass |
-| Modal is semantically correct | All HTML Validation to Pass and modal works with out causing a 500 Internal Server Error | Pass |
+## Manual Testing
+**First-Time Visitor Goals - As a first-time user, who has not created an account, I want to be able to understand what the purpose of the application is and how to use it.**
+* [Home Page](static/images/frontpage.png)
 
+**View the recipies**
+* [Drinks Page](static/images/Drinkspage.png)
+
+**Create an account**
+* [Register Page](static/images/register-page.png)
+
+**As a registered user I want to be able to Create, Edit and delete my own cocktail recipes**
+* [New Post Page](static/images/new-post.png)
+* [edit delte buttons](static/images/edit-delete.png)
+* [edit post page](static/images/edit-post.png)
+
+**View the recipes**
+* [Drinks Page](static/images/Drinkspage.png)
+
+**Create an account**
+* [Register Page](static/images/register-page.png)
+
+**Upload an image of my cocktail**
+* [upload image](static/images/upload-image.png)
+
+**Comment on other user's recipes**
+* [comment Page](static/images/commnet-done.png)
+
+**Site Admin Goals - As an administrator, I want to be able to Create, Edit and delete my own and users cocktail recipes**
+* [Admin cocktails](static/images/admin-cocktails.png)
+
+**Manage and authenticate user's posts and comments**
+* [Admin cocktails](static/images/manage-comment.png)
 
 ## Documentation used
 
@@ -140,10 +159,13 @@ Responsive to different screen sizes [Link](http://www.responsinator.com/?url=ht
 * Most of the picture were taken from [unsplash.com](https://unsplash.com/)
 * All of the recipies are from [bbcgoodfood.com](https://www.bbcgoodfood.com/)
 
-**The enitire project is based on the code along tutorial "I think therefore I blog" from [The Code Insitute](https://codeinstitute.net/full-stack-software-development-diploma/?utm_term=the%20code%20institute&utm_campaign=CI+-+UK+-+Search+-+Brand&utm_source=adwords&utm_medium=ppc&hsa_acc=8983321581&hsa_cam=1578649861&hsa_grp=62188641240&hsa_ad=581730217381&hsa_src=g&hsa_tgt=kwd-572567981978&hsa_kw=the%20code%20institute&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gclid=CjwKCAjwyaWZBhBGEiwACslQo-MjHk10r88-t4IPQa_EDUihpydmI6C5nLpOwKQydYkoDnId_dncuhoCP_UQAvD_BwE). Without their course material and their EXCELLENT tutors I would never have been able to complete this project**
+**The enitire project is heavily based on the code along tutorial "I think therefore I blog" from [The Code Insitute](https://codeinstitute.net/full-stack-software-development-diploma/?utm_term=the%20code%20institute&utm_campaign=CI+-+UK+-+Search+-+Brand&utm_source=adwords&utm_medium=ppc&hsa_acc=8983321581&hsa_cam=1578649861&hsa_grp=62188641240&hsa_ad=581730217381&hsa_src=g&hsa_tgt=kwd-572567981978&hsa_kw=the%20code%20institute&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gclid=CjwKCAjwyaWZBhBGEiwACslQo-MjHk10r88-t4IPQa_EDUihpydmI6C5nLpOwKQydYkoDnId_dncuhoCP_UQAvD_BwE). Without their course material and their EXCELLENT tutors I would never have been able to complete this project**
 
 ## Fixes and Changes to make in the future
 
 - The general UI and sytling of the site isn't quiet what I want it to be but I ran out of time. 
-    it is not the easiest site for a user to use and I will correct this after reciving my assesment results, pass or fail. 
+    it is not the easiest site for a user to use and I will correct this after reciving my assesment results, pass or fail.
+- I would like to add a search bar and imnprove the sites pagination
+- More functionality for the user to manage their own account is need. Password changing, email notifications for a start.  
+
 
